@@ -46,12 +46,12 @@
   height: 30px;
   right: -15px;
   top: -15px;
-  background: url(../images/modal/closebox.png) no-repeat center;
+  background: url(../img/closebox.png) no-repeat center;
   border: none;
 }
 
 .sbox-loading #sbox-content {
-  background-image: url(../images/modal/spinner.gif);
+  background-image: url(../img/spinner.gif);
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -100,8 +100,7 @@
   }
 
   &.shadow {
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
   }
 }
@@ -118,52 +117,52 @@
   left: 0;
   top: -40px;
   width: 100%;
-  background: url(../images/modal/bg_n.png) repeat-x;
+  background: url(../img/bg_n.png) repeat-x;
 }
 
 .sbox-bg-ne {
   right: -33px;
   top: -40px;
-  background: url(../images/modal/bg_ne.png) no-repeat;
+  background: url(../img/bg_ne.png) no-repeat;
 }
 
 .sbox-bg-e {
   right: -33px;
   top: 0;
   height: 100%;
-  background: url(../images/modal/bg_e.png) repeat-y;
+  background: url(../img/bg_e.png) repeat-y;
 }
 
 .sbox-bg-se {
   right: -33px;
   bottom: -40px;
-  background: url(../images/modal/bg_se.png) no-repeat;
+  background: url(../img/bg_e.png) no-repeat;
 }
 
 .sbox-bg-s {
   left: 0;
   bottom: -40px;
   width: 100%;
-  background: url(../images/modal/bg_s.png) repeat-x;
+  background: url(../img/bg_s.png) repeat-x;
 }
 
 .sbox-bg-sw {
   left: -33px;
   bottom: -40px;
-  background: url(../images/modal/bg_sw.png) no-repeat;
+  background: url(../img/bg_sw.png) no-repeat;
 }
 
 .sbox-bg-w {
   left: -33px;
   top: 0;
   height: 100%;
-  background: url(../images/modal/bg_w.png) repeat-y;
+  background: url(../img/bg_w.png) repeat-y;
 }
 
 .sbox-bg-nw {
   left: -33px;
   top: -40px;
-  background: url(../images/modal/bg_nw.png) no-repeat;
+  background: url(../img/bg_nw.png) no-repeat;
 }
 
 @-moz-document url-prefix() {

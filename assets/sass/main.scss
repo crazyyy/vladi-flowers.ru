@@ -1,16 +1,14 @@
-@import 'import/reset';
-@import 'import/variables';
-@import 'import/mixin';
-@import 'import/wordpress';
+// @import 'import/reset';
+// @import 'import/variables';
+// @import 'import/mixin';
+// @import 'import/wordpress';
 @import 'sprite';
 
-
-
-
-
-
-
-
+@import 'old/modal';
+@import 'old/vlada';
+@import 'old/system';
+@import 'old/general';
+@import 'old/style';
 
 @import 'base64';
-@import 'import/print';
+// @import 'import/print';
