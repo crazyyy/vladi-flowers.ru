@@ -5,6 +5,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
   <title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' :'; } ?> <?php bloginfo( 'name' ); ?></title>
 
   <link href="http://www.google-analytics.com/" rel="dns-prefetch"><!-- dns prefetch -->
@@ -21,28 +22,38 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-<!-- wrapper -->
-<div class="wrapper">
-  <header role="banner">
-    <div class="inner">
 
-      <div class="logo">
-        <?php if ( is_front_page() && is_home() ){ } else { ?>
-          <a href="<?php echo home_url(); ?>">
-            <?php  } ?>
-            <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="<?php wp_title( '' ); ?>" title="<?php wp_title( '' ); ?>" class="logo-img">
-            <?php if ( is_front_page() && is_home() ){
-            } else { ?>
-          </a>
-        <?php } ?>
-      </div><!-- /logo -->
+  <div id="main">
 
-      <nav class="nav" role="navigation">
-        <?php wpeHeadNav(); ?>
-      </nav><!-- /nav -->
+    <div id="footer-position">
+      <div id="footer">
+        <div id="seo-text">
+          <div class="moduletable">
+            <div class="custom">
+              <?php the_content(); ?>
+            </div>
+          </div>
+        </div>
+        <!-- div#seo-text is closed-->
+        <div id="bottom1">
+          <div class="moduletable">
+            <?php wpeFootNavOne(); ?>
+          </div>
+          <div class="moduletable">
+            <?php wpeFootNavTwo(); ?>
+          </div>
+          <div class="moduletable">
+            <?php wpeFootNavThree(); ?>
+          </div>
+        </div>
+        <!-- div#bottom1 is closed-->
+        <div id="bottom2"></div>
+        <!-- div#bottom2 is closed-->
+      </div>
+      <!-- div#footer is closed-->
+    </div>
+    <!-- div#footer-positio is closed-->
 
-    </div><!-- /.inner -->
-  </header><!-- /header -->
+    <div id="container">
 
-  <section role="main">
-    <div class="inner">
+      <div id="left" class="column">

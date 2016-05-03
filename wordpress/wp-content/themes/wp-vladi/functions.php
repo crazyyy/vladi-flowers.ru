@@ -40,8 +40,9 @@ add_action('init', 'wpeHeaderScripts'); // Add Scripts to wp_head
 function wpeHeaderScripts() {
   if (!is_admin()) {
     wp_deregister_script('jquery'); // Deregister WordPress jQuery   RU: Отключаю стандартный JQuery WordPress'а
-    wp_register_script('jquery', '//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', array(), '1.11.0'); // Google CDN jQuery   RU: Регистрирую JQuery с хостинга Google
-    wp_enqueue_script('jquery'); // Enqueue it!    RU: Подключаю его
+    //  Load footer scripts (footer.php)
+    wp_register_script('vendors', get_template_directory_uri() . '/js/vendor.js', array(), '1.0.0', true); // Custom scripts
+    wp_enqueue_script('vendors'); // Enqueue it!
 
     wp_register_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '2.8.3'); // Modernizr
     wp_enqueue_script('modernizr'); // Enqueue it!
@@ -114,10 +115,10 @@ function wpeHeadNav() {
   );
 }
 // WPE footer navigation
-function wpeFootNav() {
+function wpeFootNavOne() {
   wp_nav_menu(
   array(
-    'theme_location'  => 'footer-menu',
+    'theme_location'  => 'footer-menu-one',
     'menu'            => '',
     'container'       => 'div',
     'container_class' => 'menu-{menu slug}-container',
@@ -130,7 +131,53 @@ function wpeFootNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="footernav">%3$s</ul>',
+    'items_wrap'      => '<ul class="footernav footernav-one">%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+// WPE footer navigation
+function wpeFootNavTwo() {
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'footer-menu-two',
+    'menu'            => '',
+    'container'       => 'div',
+    'container_class' => 'menu-{menu slug}-container',
+    'container_id'    => '',
+    'menu_class'      => 'menu',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul class="footernav footernav-two">%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+// WPE footer navigation
+function wpeFootNavThree() {
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'footer-menu-three',
+    'menu'            => '',
+    'container'       => 'div',
+    'container_class' => 'menu-{menu slug}-container',
+    'container_id'    => '',
+    'menu_class'      => 'menu',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul class="footernav footernav-three">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -165,7 +212,9 @@ function register_html5_menu() {
   register_nav_menus(array(
     'header-menu' => __('Меню в шапке', 'wpeasy'),
     'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'),
-    'footer-menu' => __('Меню в подвал', 'wpeasy')
+    'footer-menu-one' => __('Меню в подвал 1', 'wpeasy'),
+    'footer-menu-two' => __('Меню в подвал 2', 'wpeasy'),
+    'footer-menu-three' => __('Меню в подвал 3', 'wpeasy'),
   ));
 }
 //  If Dynamic Sidebar Existsов
@@ -422,7 +471,7 @@ function easy_breadcrumbs() {
   $text['404'] = 'Ошибка 404'; // текст для страницы 404
 
   $show_current = 1; // 1 - показывать название текущей статьи/страницы/рубрики, 0 - не показывать
-  $show_on_home = 0; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
+  $show_on_home = 1; // 1 - показывать "хлебные крошки" на главной странице, 0 - не показывать
   $show_home_link = 1; // 1 - показывать ссылку "Главная", 0 - не показывать
   $show_title = 1; // 1 - показывать подсказку (title) для ссылок, 0 - не показывать
   $delimiter = ' &raquo; '; // разделить между "крошками"
@@ -653,10 +702,76 @@ function disable_emojicons_tinymce( $plugins ) {
   }
 }
 
+// Add Autoren Post Type
+add_action( 'init', 'post_type_product' );
+function post_type_product() {
 
+  $labels = array(
+    'name' => 'Product',
+    'singular_name' => 'Product',
+    'add_new' => 'Add',
+    'add_new_item' => 'Add',
+    'edit' => 'Edit',
+    'edit_item' => 'Edit',
+    'new-item' => 'Add',
+    'view' => 'View',
+    'view_item' => 'View',
+    'search_items' => 'Search',
+    'not_found' => 'Not Found',
+    'not_found_in_trash' => 'Not Found',
+    'parent' => 'Parent'
+  );
 
+  $args = array(
+    'description' => 'Product Post Type',
+    'show_ui' => true,
+    'menu_position' => 3,
+    'exclude_from_search' => false,
+    'labels' => $labels,
+    'public' => true,
+    'publicly_queryable' => true,
+    'capability_type' => 'post',
+    'hierarchical' => false,
+    'supports' => array('title','editor','thumbnail'),
+    'has_archive' => true,
+    'rewrite' => array( 'slug' => 'product' ),
+    // https://developer.wordpress.org/resource/dashicons/
+    'menu_icon' => 'dashicons-cart',
+    'show_in_rest' => true
+  );
 
+  register_post_type( 'product' , $args );
+}
 
+// hook into the init action and call create_book_taxonomies when it fires
+add_action( 'init', 'products', 0 );
+function products() {
+  // Add new taxonomy, make it hierarchical (like categories)
+  $labels = array(
+    'name'              => 'Categories',
+    'singular_name'     => 'Category',
+    'search_items'      => 'Search',
+    'all_items'         => 'All',
+    'parent_item'       => 'Parent',
+    'parent_item_colon' => 'Parent',
+    'edit_item'         => 'Edit',
+    'update_item'       => 'Update',
+    'add_new_item'      => 'Add',
+    'new_item_name'     => 'Add',
+    'menu_name'         => 'Categories',
+  );
+
+  $args = array(
+    'hierarchical'      => true,
+    'labels'            => $labels,
+    'show_ui'           => true,
+    'show_admin_column' => true,
+    'query_var'         => true,
+    'rewrite'           => array( 'slug' => 'categories' ),
+  );
+
+  register_taxonomy( 'categories', array( 'product' ), $args );
+}
 
 
 

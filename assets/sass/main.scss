@@ -2,6 +2,7 @@
 @import 'import/variables';
 @import 'import/mixin';
 @import 'import/wordpress';
+@import 'font_avalon_medium';
 @import 'sprite';
 
 /**
@@ -35,10 +36,7 @@
 
   text-align: left;
 
-  -webkit-border-radius: 3px;
-  /* invalid values, but looks smoother! */
-     -moz-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   background-color: #fff;
   &[aria-hidden=true] {
     display: none;
@@ -2422,4 +2420,30 @@ div#width-feedback {
   width: 100%;
 }
 
-@import 'base64';
+/**
+ * Rebuild CSS
+ */
+$pink: #b7157c;
+#horizontalmenu {
+  a {
+    font-family: 'Avalon';
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1;
+
+    text-decoration: none;
+
+    color: $pink;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, .3);
+  }
+}
+.breadcrumbs {
+  display: inline;
+
+  color: #7b7b7b;
+  a {
+    text-decoration: none;
+
+    color: #7b7b7b;
+  }
+}
