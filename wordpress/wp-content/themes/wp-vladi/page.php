@@ -1,18 +1,23 @@
 <?php get_header(); ?>
-  <?php if (have_posts()): while (have_posts()) : the_post(); ?>
-    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-      <h1 class="page-title inner-title"><?php the_title(); ?></h1>
-      <?php the_content(); ?>
-      <?php edit_post_link(); ?>
+  <?php get_sidebar(); ?>
 
-    </article>
-  <?php endwhile; else: // If 404 page error ?>
-    <article>
+    <div id="content" class="column">
 
-      <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
+      <?php if (have_posts()): while (have_posts()) : the_post(); ?>
+        <div id="post-<?php the_ID(); ?>" <?php post_class('item-page'); ?>>
+          <span class="header_article"><?php the_title(); ?></span>
+          <?php the_content(); ?>
+        </div><!-- item-page -->
+      <?php endwhile; else: ?>
+        <div class="item-page">
+          <h2 class="page-title inner-title"><?php _e( 'Sorry, nothing to display.', 'wpeasy' ); ?></h2>
+        </div>
+      <?php endif; ?>
 
-    </article>
-  <?php endif; ?>
-<?php get_sidebar(); ?>
+    </div><!-- content -->
+
+  </div>
+  <!-- div#container is closed-->
+
 <?php get_footer(); ?>

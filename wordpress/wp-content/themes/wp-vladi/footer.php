@@ -26,8 +26,8 @@
         <!-- div#breadcrambs is closed-->
         <div id="shoping-search">
           <div class="moduletable">
-            <form name="searchForm" method="post">
-              <input type="text" class="inputbox" style="width: 223px; height:29px" name="search" id="jshop_search" value="Поиск">
+            <form method="get" name="searchForm" action="<?php bloginfo('url'); ?>/">
+              <input type="text" class="inputbox" style="width: 223px; height:29px" name="s" id="jshop_search" value="Поиск">
               <input class="button" style="width: 26px; height:24px;" type="submit" value="" id="submit_search">
             </form>
           </div>
@@ -60,28 +60,8 @@
     </div>
   </div><!-- moduletable -->
 
-  <style>
-  #header + #content > #left > #rlblock_left,
-  #content > #center > .dose > .dosesingle,
-  #content > #right > .dose > .dosesingle {
-    display: none !important;
-  }
-  </style>
-
   <?php wp_footer(); ?>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/vendor.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/mootools-core.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/core.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/caption.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/modal.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/jquery.media.js"></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/js/functions.js"></script>
-  <script>
-    function isEmptyValue(value) {
-    var pattern = /\S/;
-    return ret = (pattern.test(value)) ? (true) : (false);
-    }
-  </script>
+
   <script language="javascript">
   $(document).ready(function() {
     var visota = $("#footer").height();

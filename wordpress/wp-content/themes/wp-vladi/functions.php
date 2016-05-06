@@ -184,10 +184,10 @@ function wpeFootNavThree() {
   );
 }
 // WPE sidebar navigation
-function wpeSideNav() {
+function wpeSideNavOne() {
   wp_nav_menu(
   array(
-    'theme_location'  => 'sidebar-menu',
+    'theme_location'  => 'sidebar-menu-one',
     'menu'            => '',
     'container'       => 'div',
     'container_class' => 'menu-{menu slug}-container',
@@ -200,7 +200,51 @@ function wpeSideNav() {
     'after'           => '',
     'link_before'     => '',
     'link_after'      => '',
-    'items_wrap'      => '<ul class="sidebarnav">%3$s</ul>',
+    'items_wrap'      => '<ul class="menu sidebarnav sidebarnav-one">%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+function wpeSideNavTwo() {
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'sidebar-menu-two',
+    'menu'            => '',
+    'container'       => 'div',
+    'container_class' => 'menu-{menu slug}-container',
+    'container_id'    => '',
+    'menu_class'      => 'menu',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul class="menu sidebarnav sidebarnav-two">%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+function wpeSideNavThree() {
+  wp_nav_menu(
+  array(
+    'theme_location'  => 'sidebar-menu-three',
+    'menu'            => '',
+    'container'       => 'div',
+    'container_class' => 'menu-{menu slug}-container',
+    'container_id'    => '',
+    'menu_class'      => 'menu',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => 'wp_page_menu',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul class="menu sidebarnav sidebarnav-three">%3$s</ul>',
     'depth'           => 0,
     'walker'          => ''
     )
@@ -211,7 +255,9 @@ add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
 function register_html5_menu() {
   register_nav_menus(array(
     'header-menu' => __('Меню в шапке', 'wpeasy'),
-    'sidebar-menu' => __('Меню в сайдбар', 'wpeasy'),
+    'sidebar-menu-one' => __('Меню в сайдбар 1', 'wpeasy'),
+    'sidebar-menu-two' => __('Меню в сайдбар 2', 'wpeasy'),
+    'sidebar-menu-three' => __('Меню в сайдбар 3', 'wpeasy'),
     'footer-menu-one' => __('Меню в подвал 1', 'wpeasy'),
     'footer-menu-two' => __('Меню в подвал 2', 'wpeasy'),
     'footer-menu-three' => __('Меню в подвал 3', 'wpeasy'),
@@ -732,7 +778,7 @@ function post_type_product() {
     'publicly_queryable' => true,
     'capability_type' => 'post',
     'hierarchical' => false,
-    'supports' => array('title','editor','thumbnail'),
+    'supports' => array('title','editor','thumbnail','comments'),
     'has_archive' => true,
     'rewrite' => array( 'slug' => 'product' ),
     // https://developer.wordpress.org/resource/dashicons/

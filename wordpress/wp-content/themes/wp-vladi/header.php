@@ -30,7 +30,7 @@
         <div id="seo-text">
           <div class="moduletable">
             <div class="custom">
-              <?php the_content(); ?>
+              <?php the_field('seo_content'); ?>
             </div>
           </div>
         </div>
