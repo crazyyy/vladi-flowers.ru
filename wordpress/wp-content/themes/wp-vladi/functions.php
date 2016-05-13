@@ -753,8 +753,8 @@ add_action( 'init', 'post_type_product' );
 function post_type_product() {
 
   $labels = array(
-    'name' => 'Product',
-    'singular_name' => 'Product',
+    'name' => 'Все букеты',
+    'singular_name' => 'Все букеты',
     'add_new' => 'Add',
     'add_new_item' => 'Add',
     'edit' => 'Edit',

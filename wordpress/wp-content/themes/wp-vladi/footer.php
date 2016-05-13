@@ -9,11 +9,11 @@
       <!-- div#horizontalmenu-bg is closed-->
       <div id="header">
         <div id="logo">
+          <a class="logo" href="<?php echo home_url(); ?>" title="<?php wp_title( '' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo2.png" border="0" alt="<?php wp_title( '' ); ?>"></a>
           <div class="custom">
-            <a href="<?php echo home_url(); ?>" title="<?php wp_title( '' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" border="0" alt="<?php wp_title( '' ); ?>"></a>
             <p><span class="slogan">Магазин цветов и подарков</span></p>
-            <p><span class="tel">8-925-802-88-29;<br>8-916-654-22-40</span></p>
-            <p><span class="adres">г. Москва, ул. Южнобутовская дом 42</span></p>
+            <p><span class="tel">8-904-236-87-95;<br>8-904-271-57-55</span></p>
+            <p><span class="adres">г. Москва, ул. 30 лет октября 21</span></p>
           </div>
         </div>
         <!-- div#logo is closed-->
