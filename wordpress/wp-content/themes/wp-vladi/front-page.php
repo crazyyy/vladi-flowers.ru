@@ -34,8 +34,6 @@
             </div>
           <?php endif; ?>
 
-
-
           <?php if(get_field('top_products')): ?>
             <?php while(has_sub_field('top_products')): ?>
 
@@ -75,8 +73,6 @@
 
             <?php endwhile; ?>
           <?php endif; ?>
-
-
 
         </div><!-- item-page -->
       </div><!-- div#content is closed-->
