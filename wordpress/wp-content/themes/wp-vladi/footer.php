@@ -62,13 +62,29 @@
 
   <?php wp_footer(); ?>
 
-  <script language="javascript">
-  $(document).ready(function() {
-    var visota = $("#footer").height();
-    $("#footer-position").height(visota);
-    $("#empty").height(visota);
-  });
+  <script>
+    window.url = '<?php echo $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] ?>';
+    window.title = '<?php the_title(); ?>';
+    window.id = '<?php echo $post->ID; ?>';
+    window.price = '<?php the_field('price'); ?>';
   </script>
+
+  <div class="modal-window modal-window-contact">
+    <h2>Свяжитесь с нами!</h2>
+    <?php echo do_shortcode('[contact-form-7 id="110" title="Contact Form"]'); ?>
+    <span class="close">x</span>
+  </div><!-- /.modal-window-contact -->
+
+  <div class="modal-window modal-window-buy">
+    <p>Вы покупаете <span class="sstitle"></span> в количестве <span class="ssquantity"></span> по цене <span class="ssprice"></span> руб., на общую сумму <span class="sspriceall"></span> руб.</p>
+    <p>Укажите, пожалуйста, свои данные и наш менеджер в ближайшее время свяжется с вами для уточнения заказа!</p>
+    <?php echo do_shortcode('[contact-form-7 id="111" title="Buy"]'); ?>
+    <span class="close">x</span>
+  </div><!-- /.modal-window-buy -->
+
+  <div class="modal-window-bg"></div>
+  <!-- /.modal-window-bg -->
+
 
 </body>
 </html>

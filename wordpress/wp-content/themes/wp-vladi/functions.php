@@ -41,8 +41,8 @@ function wpeHeaderScripts() {
   if (!is_admin()) {
     wp_deregister_script('jquery'); // Deregister WordPress jQuery   RU: Отключаю стандартный JQuery WordPress'а
     //  Load footer scripts (footer.php)
-    wp_register_script('vendors', get_template_directory_uri() . '/js/vendor.js', array(), '1.0.0', true); // Custom scripts
-    wp_enqueue_script('vendors'); // Enqueue it!
+    wp_register_script('jquery', get_template_directory_uri() . '/js/jquery.js', array(), '1.0.0', true); // Custom scripts
+    wp_enqueue_script('jquery'); // Enqueue it!
 
     wp_register_script('modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', array(), '2.8.3'); // Modernizr
     wp_enqueue_script('modernizr'); // Enqueue it!

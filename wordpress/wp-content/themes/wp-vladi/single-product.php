@@ -37,7 +37,7 @@
               <label for="quantity">
                 Количество:&nbsp;
               </label>
-              <input type="text" name="quantity" id="quantity" val="1">
+              <input type="text" name="quantity" id="quantity" class="quantity" value="1">
               <input type="submit" class="button-zakaz" value="">
             </form><!-- prod_buttons -->
 
