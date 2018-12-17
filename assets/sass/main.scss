@@ -2683,7 +2683,7 @@ $green: #417e04;
     @include linear-gradient(lighten(green, 10%), lighten(green, 15%));
   }
   .input-hidden{
-    /* display: none; */
+    display: none;
   }
   p {
     color: #000;

@@ -12,8 +12,8 @@
           <a class="logo" href="<?php echo home_url(); ?>" title="<?php wp_title( '' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/logo2.png" border="0" alt="<?php wp_title( '' ); ?>"></a>
           <div class="custom">
             <p><span class="slogan">Магазин цветов и подарков</span></p>
-            <p><span class="tel">8-904-236-87-95;<br>8-904-271-57-55</span></p>
-            <p><span class="adres">г. Москва, ул. 30 лет октября 21</span></p>
+            <p><span class="tel">тел.: +7-904-236-87-95;<br>тел.: +7-(82167)-157-55</span></p>
+            <p><span class="adres">АДРЕС: г. Ухта, 30 лет октября, 21</span></p>
           </div>
         </div>
         <!-- div#logo is closed-->
